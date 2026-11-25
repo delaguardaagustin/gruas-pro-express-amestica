@@ -27,7 +27,7 @@
   --bg:#ffffff;--surface:#f6f4f0;--text:#121417;--muted:#59606a;--accent:#ff6a13;--line:#e4dfd7;--font:'Archivo',system-ui,sans-serif;--display:'Barlow Condensed','Arial Narrow',sans-serif;
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;overflow-x:hidden}
-img,video{max-width:100%;display:block}a{color:inherit}button,input,select,textarea{font:inherit}
+img,video{max-width:100%;display:block}img{height:auto}a{color:inherit}button,input,select,textarea{font:inherit}
 .i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 :focus-visible{outline:3px solid var(--c1);outline-offset:2px}
@@ -168,9 +168,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(11,13,16,.94);backdrop-f
 .hor{list-style:none;padding:0;margin:0 0 20px}.hor li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14)}
 .mapa{width:100%;min-height:320px;height:100%;border:0;border-radius:var(--r)}
 @media (max-width:820px){.donde{grid-template-columns:1fr}}
-footer{background:var(--oscuro);color:rgba(255,255,255,.72);font-size:.9rem;padding:34px 0;border-top:4px solid var(--c1)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;align-items:center}footer a{color:#fff}
-footer .pie-marca{display:flex;align-items:center;gap:12px}footer img{width:46px}
 
 /* barra y botón flotante */
 .barra-movil{display:none}
@@ -180,6 +177,119 @@ footer .pie-marca{display:flex;align-items:center;gap:12px}footer img{width:46px
 .fab{position:fixed;right:18px;bottom:18px;z-index:59;display:inline-flex;align-items:center;gap:10px;background:var(--c1);color:#fff;text-decoration:none;font-weight:700;font-size:.92rem;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 14px 30px -12px rgba(0,0,0,.55)}
 .fab .i{width:24px;height:24px}
 @media (max-width:760px){.fab{bottom:68px;right:12px;padding:11px 14px}.fab .fab-txt{display:none}}
+
+/* ===== menú para celular ===== */
+.menu-btn{display:none;width:48px;height:48px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04);color:#fff;cursor:pointer;place-items:center;padding:0}
+.menu-btn svg{width:24px;height:24px;fill:none;stroke-width:2.4;stroke-linecap:round}
+.menu-btn .l1,.menu-btn .l2{stroke:#fff}.menu-btn .l3{stroke:var(--c1)}
+@media (max-width:980px){.menu-btn{display:grid}}
+.mm{position:fixed;inset:0;z-index:200;visibility:hidden;pointer-events:none}
+.mm.abierto{visibility:visible;pointer-events:auto}
+.mm-fondo{position:absolute;inset:0;background:rgba(5,6,8,.6);opacity:0;transition:opacity .3s}
+.mm.abierto .mm-fondo{opacity:1}
+.mm-hoja{position:absolute;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--oscuro);color:#fff;display:flex;flex-direction:column;overflow-y:auto;transform:translateX(100%);transition:transform .38s cubic-bezier(.16,1,.3,1);padding:calc(16px + env(safe-area-inset-top,0px)) max(22px,env(safe-area-inset-right,0px)) calc(22px + env(safe-area-inset-bottom,0px)) 22px;
+  background-image:radial-gradient(500px 340px at 100% 0%,rgba(255,106,19,.22),transparent 70%),repeating-linear-gradient(-45deg,rgba(255,255,255,.025) 0 2px,transparent 2px 14px)}
+.mm.abierto .mm-hoja{transform:none}
+.mm-arriba{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.mm-arriba img{width:74px}
+.mm-x{width:48px;height:48px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
+.mm-x svg{width:22px;height:22px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round}
+.mm-links{list-style:none;margin:18px 0;padding:0;counter-reset:m}
+.mm-links li{counter-increment:m;opacity:0;transform:translateX(24px);transition:opacity .35s,transform .35s}
+.mm.abierto .mm-links li{opacity:1;transform:none}
+.mm.abierto .mm-links li:nth-child(2){transition-delay:.05s}.mm.abierto .mm-links li:nth-child(3){transition-delay:.1s}.mm.abierto .mm-links li:nth-child(4){transition-delay:.15s}.mm.abierto .mm-links li:nth-child(5){transition-delay:.2s}
+.mm-links a{display:flex;align-items:baseline;gap:14px;padding:14px 0;text-decoration:none;font:800 2.2rem/1 var(--ft);font-style:italic;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.08)}
+.mm-links a::before{content:"0" counter(m);font:700 .85rem/1 var(--fx);font-style:normal;color:var(--c1);letter-spacing:.1em}
+.mm-links a:hover,.mm-links a:focus-visible{color:var(--c1)}
+.mm-acc{display:grid;gap:10px;margin-top:auto}
+.mm-acc .btn{width:100%}
+.mm-dato{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;color:rgba(255,255,255,.7);font-size:.9rem}
+.mm-dato a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:700}
+.mm-dato svg{width:18px;height:18px;fill:currentColor}
+.mm-dato .vivo{display:inline-flex;align-items:center;gap:8px}
+.vivo::before{content:"";width:9px;height:9px;border-radius:50%;background:#2bd46b;box-shadow:0 0 0 0 rgba(43,212,107,.6);animation:latido 2s infinite}
+@keyframes latido{70%{box-shadow:0 0 0 9px rgba(43,212,107,0)}100%{box-shadow:0 0 0 0 rgba(43,212,107,0)}}
+@media (prefers-reduced-motion:reduce){.mm-hoja,.mm-links li{transition:none}.vivo::before{animation:none}}
+body.sin-scroll{overflow:hidden}
+
+/* ===== más diseño ===== */
+.portada .eti .vivo{color:#fff;font-weight:600;letter-spacing:.08em}
+.portada::before{content:"24/7";position:absolute;right:-1vw;bottom:-6vw;z-index:1;font:900 clamp(10rem,26vw,24rem)/1 var(--ft);font-style:italic;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.07);pointer-events:none}
+.bajar{position:absolute;left:50%;bottom:22px;z-index:2;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.65);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
+.bajar i{width:22px;height:36px;border:2px solid currentColor;border-radius:12px;position:relative}
+.bajar i::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--c1);animation:rueda 1.8s infinite}
+@keyframes rueda{60%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+@media (max-width:880px){.bajar{display:none}}
+@media (prefers-reduced-motion:reduce){.bajar i::after{animation:none}}
+
+.cinta{background:var(--c1);color:var(--oscuro);overflow:hidden;white-space:nowrap;border-block:3px solid var(--oscuro)}
+.cinta div{display:inline-flex;gap:34px;padding:14px 0;animation:cinta 32s linear infinite;font:800 1.35rem/1 var(--ft);font-style:italic;text-transform:uppercase;letter-spacing:.02em}
+.cinta span{display:inline-flex;align-items:center;gap:34px}
+.cinta span::after{content:"";width:10px;height:10px;background:var(--oscuro);transform:rotate(45deg)}
+@keyframes cinta{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.cinta div{animation:none}}
+
+.trabajos{position:relative;background-image:radial-gradient(700px 400px at 90% 0%,rgba(255,106,19,.13),transparent 70%),repeating-linear-gradient(-45deg,rgba(255,255,255,.018) 0 2px,transparent 2px 16px)}
+.vid{transition:transform .25s,border-color .25s}.vid:hover{transform:translateY(-4px);border-color:rgba(255,106,19,.55)}
+
+.cifras{background:var(--oscuro);color:#fff;padding:0}
+.cifras ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.cifras li{padding:34px 18px;text-align:center;border-left:1px solid rgba(255,255,255,.08)}
+.cifras li:first-child{border-left:0}
+.cifras b{display:block;font:900 clamp(2.6rem,5vw,3.8rem)/1 var(--ft);font-style:italic;color:var(--c1)}
+.cifras span{display:block;margin-top:8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:700}
+@media (max-width:700px){.cifras ul{grid-template-columns:1fr 1fr}.cifras li:nth-child(3){border-left:0}.cifras li:nth-child(n+3){border-top:1px solid rgba(255,255,255,.08)}}
+
+#servicios{position:relative;overflow:hidden}
+#servicios::before{content:"SERVICIOS";position:absolute;top:28px;right:-20px;font:900 clamp(5rem,13vw,11rem)/1 var(--ft);font-style:italic;color:transparent;-webkit-text-stroke:2px rgba(18,20,23,.06);pointer-events:none}
+.servs{counter-reset:s}
+.serv{counter-increment:s;position:relative}
+.serv .foto{position:relative;overflow:hidden;margin:0}
+.serv .foto img{transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.serv:hover .foto img{transform:scale(1.07)}
+.serv .foto::after{content:"0" counter(s);position:absolute;left:14px;top:12px;font:900 1.6rem/1 var(--ft);font-style:italic;color:#fff;background:var(--c1);padding:6px 10px 5px;border-radius:8px;box-shadow:0 8px 18px -6px rgba(0,0,0,.5)}
+.serv h3{transition:color .2s}.serv:hover h3{color:var(--c1o)}
+
+.confianza{background-image:radial-gradient(600px 400px at 0% 100%,rgba(255,106,19,.16),transparent 70%)}
+.puntos li{transition:border-color .2s,background .2s}.puntos li:hover{border-color:rgba(255,106,19,.5);background:rgba(255,106,19,.06)}
+.pasos li{transition:transform .2s,box-shadow .2s}.pasos li:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(0,0,0,.4)}
+.pasos li::after{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--c1),transparent)}
+.res{position:relative}.res::before{content:"“";position:absolute;right:18px;top:-8px;font:900 6rem/1 var(--ft);color:rgba(255,106,19,.18)}
+
+.llamado{position:relative;overflow:hidden;background:var(--c1);color:var(--oscuro);padding:64px 0;background-image:repeating-linear-gradient(-45deg,rgba(0,0,0,.06) 0 14px,transparent 14px 28px)}
+.llamado .wrap{display:grid;grid-template-columns:1fr auto;gap:24px 40px;align-items:center}
+.llamado h2{color:var(--oscuro);font-size:clamp(2.2rem,5.4vw,4rem)}
+.llamado p{margin:10px 0 0;font-weight:600;font-size:1.08rem}
+.llamado .tel{display:block;font:900 clamp(2rem,4.6vw,3.2rem)/1 var(--ft);font-style:italic;color:var(--oscuro);text-decoration:none;margin-bottom:14px;white-space:nowrap}
+.llamado .acciones .btn-d{background:var(--oscuro);color:#fff}
+.llamado .acciones .btn-w{background:#fff;color:var(--oscuro)}
+.llamado img{position:absolute;right:-60px;top:50%;width:360px;transform:translateY(-50%) rotate(-8deg);opacity:.12;pointer-events:none}
+@media (max-width:820px){.llamado .wrap{grid-template-columns:1fr}.llamado img{display:none}}
+
+/* ===== pie de página ===== */
+.pie{position:relative;overflow:hidden;background:var(--oscuro);color:rgba(255,255,255,.72);font-size:.95rem;padding:0 0 calc(20px + env(safe-area-inset-bottom,0px))}
+.pie .baliza{height:12px}
+.pie-grid{display:grid;grid-template-columns:1.25fr .8fr .9fr 1fr;gap:40px;padding:64px 0 40px;position:relative;z-index:1}
+.pie-logo{position:relative;display:inline-block;margin-bottom:18px}
+.pie-logo::before{content:"";position:absolute;inset:-14% -18%;background:radial-gradient(closest-side,rgba(255,106,19,.38),transparent);z-index:-1}
+.pie-logo img{width:220px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))}
+.pie p{margin:0 0 14px;max-width:34ch}
+.pie .estrellas{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 14px;color:#fff;font-weight:700;font-size:.9rem}
+.pie .estrellas b{color:#ffc23a;letter-spacing:2px}
+.pie h4{margin:0 0 16px;font:800 1.25rem/1 var(--ft);font-style:italic;text-transform:uppercase;color:#fff;letter-spacing:.02em}
+.pie h4::after{content:"";display:block;width:30px;height:3px;background:var(--c1);margin-top:10px;border-radius:2px}
+.pie ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pie ul a{color:rgba(255,255,255,.78);text-decoration:none}.pie ul a:hover{color:var(--c1)}
+.pie .contacto li{display:flex;gap:10px;align-items:flex-start}.pie .contacto .i{color:var(--c1);margin-top:2px}
+.pie .redes{display:flex;gap:10px;margin-top:16px}
+.pie .redes a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.14)}
+.pie .redes a:hover{background:var(--c1);border-color:var(--c1)}
+.pie .redes svg{width:20px;height:20px;fill:currentColor}
+.pie-gigante{max-width:none!important;position:relative;z-index:0;margin:0 0 -0.12em;text-align:center;font:900 clamp(3.4rem,13.5vw,12.5rem)/.85 var(--ft);font-style:italic;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.1);white-space:nowrap;user-select:none;pointer-events:none}
+.pie-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:.85rem;color:rgba(255,255,255,.55);position:relative;z-index:1}
+.pie-base a{color:#fff}
+@media (max-width:980px){.pie-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.pie-grid{grid-template-columns:1fr 1fr;gap:30px 18px;padding-top:48px}.pie-grid>div:first-child,.pie-grid>div:last-child{grid-column:1/-1}.pie-logo img{width:190px}}
 </style>
 </head>
 <body>
@@ -199,8 +309,28 @@ footer .pie-marca{display:flex;align-items:center;gap:12px}footer img{width:46px
   <div class="nav-der">
     <a class="red" href="https://www.facebook.com/people/GRUAS-PRO/61584228413606/" target="_blank" rel="noopener" aria-label="Facebook de Grúas Pro Express"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg></a>
     <a class="btn btn-p" href="#contacto">Pedir grúa</a>
+    <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mm"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="l1" d="M3 6.5h18"/><path class="l2" d="M3 12h18"/><path class="l3" d="M10 17.5h11"/></svg></button>
   </div>
 </div></header>
+
+<div class="mm" id="mm" aria-hidden="true">
+  <div class="mm-fondo" data-cerrar></div>
+  <nav class="mm-hoja" aria-label="Menú">
+    <div class="mm-arriba"><img src="assets/logo-256.png" alt="Grúas Pro Express" width="256" height="206"><button class="mm-x" type="button" aria-label="Cerrar menú" data-cerrar><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <ul class="mm-links">
+      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#opiniones">Opiniones</a></li>
+      <li><a href="#contacto">Pedir grúa</a></li>
+      <li><a href="#ubicacion">Dónde operamos</a></li>
+    </ul>
+    <div class="mm-acc">
+      <a class="btn btn-wa" href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20necesito%20una%20gr%C3%BAa" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.6c.2 2.9 2.6 5.4 5.6 5.8l1-1.1 1.9.8-.4 1.8c-4.6.4-8.8-3.6-8.5-8.3l1.8-.4.8 1.9z"/></svg>Pedir grúa por WhatsApp</a>
+      <a class="btn btn-p" href="tel:+56997543622"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.6l1.6 4.4-2.2 1.4a11 11 0 0 0 6.2 6.2l1.4-2.2 4.4 1.6V18.5A2 2 0 0 1 18 20.5 15.5 15.5 0 0 1 3.5 6 2 2 0 0 1 5 3.5z"/></svg>Llamar al +56 9 9754 3622</a>
+    </div>
+    <div class="mm-dato"><span class="vivo">Atendemos las 24 horas</span><a href="https://www.facebook.com/people/GRUAS-PRO/61584228413606/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg>Facebook</a></div>
+  </nav>
+</div>
 
 <main id="inicio">
 <section class="portada">
@@ -208,7 +338,7 @@ footer .pie-marca{display:flex;align-items:center;gap:12px}footer img{width:46px
   <video autoplay muted loop playsinline preload="metadata" poster="assets/portada.jpg" aria-hidden="true"><source src="assets/portada.mp4" type="video/mp4"></video>
   <div class="wrap">
     <div class="reveal">
-      <span class="eti">Grúas y rescate 24/7 · Santiago</span>
+      <span class="eti">Grúas y rescate · <span class="vivo">Atendemos 24/7</span></span>
       <h1>¿Quedó en pana?<br><em>Lo vamos a buscar.</em></h1>
       <p class="baja">Grúa las 24 horas, todos los días. Subimos su auto con cuidado a la plataforma y lo dejamos donde nos diga: al taller, a su casa o donde lo necesite.</p>
       <div class="acciones">
@@ -219,8 +349,9 @@ footer .pie-marca{display:flex;align-items:center;gap:12px}footer img{width:46px
     </div>
     <img class="escudo" src="assets/logo.png" alt="Escudo de Grúas Pro Express: grúa 24/7 con un auto sobre la plataforma" width="608" height="489">
   </div>
+  <a class="bajar" href="#trabajos" aria-label="Ver nuestros trabajos"><i></i>Trabajos</a>
 </section>
-<div class="baliza" aria-hidden="true"></div>
+<div class="cinta" aria-hidden="true"><div><span>Grúas 24/7</span><span>Rescate en pana</span><span>Traslado de autos</span><span>Clásicos y alta gama</span><span>Recoleta y Santiago</span><span>Grúas 24/7</span><span>Rescate en pana</span><span>Traslado de autos</span><span>Clásicos y alta gama</span><span>Recoleta y Santiago</span></div></div>
 
 <section id="trabajos" class="trabajos"><div class="wrap">
   <div class="cab reveal"><div><span class="eti">Trabajos reales</span><h2>Así cuidamos<br><em>cada auto</em></h2></div><p>Videos de traslados hechos por nosotros, desde el auto de todos los días hasta clásicos y de alta gama. Toque uno para verlo.</p></div>
@@ -243,16 +374,23 @@ footer .pie-marca{display:flex;align-items:center;gap:12px}footer img{width:46px
   </div>
 </div></section>
 
+<section class="cifras" aria-label="Grúas Pro Express en cifras"><div class="wrap"><ul>
+  <li class="reveal"><b>4,9</b><span>Estrellas en Google</span></li>
+  <li class="reveal"><b>53</b><span>Opiniones de clientes</span></li>
+  <li class="reveal"><b>24/7</b><span>Todos los días</span></li>
+  <li class="reveal"><b>365</b><span>Días al año</span></li>
+</ul></div></section>
+
 <section id="servicios"><div class="wrap">
   <div class="cab reveal"><div><span class="eti">Servicios</span><h2>Lo que <em>hacemos</em></h2></div><p>Toque «Consultar» y se abre WhatsApp con el mensaje listo.</p></div>
   <div class="servs">
-    <article class="serv reveal"><img src="assets/trabajos/t01.jpg" alt="Auto blanco subiendo a la plataforma de la grúa" loading="lazy" width="832" height="464"><div><h3>Traslado de autos en grúa</h3><p>Llevamos su auto al taller, a su casa o donde lo necesite.</p>
+    <article class="serv reveal"><figure class="foto"><img src="assets/trabajos/t01.jpg" alt="Auto blanco subiendo a la plataforma de la grúa" loading="lazy" width="832" height="464"></figure><div><h3>Traslado de autos en grúa</h3><p>Llevamos su auto al taller, a su casa o donde lo necesite.</p>
       <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20consultar%20por%3A%20traslado%20de%20autos%20en%20gr%C3%BAa." target="_blank" rel="noopener">Consultar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
-    <article class="serv reveal"><img src="assets/trabajos/t06.jpg" alt="Rescate de un vehículo en un espacio cerrado" loading="lazy" width="832" height="464"><div><h3>Rescate y auxilio en pana</h3><p>Si su auto quedó detenido, vamos a buscarlo, también de noche.</p>
+    <article class="serv reveal"><figure class="foto"><img src="assets/trabajos/t06.jpg" alt="Rescate de un vehículo en un espacio cerrado" loading="lazy" width="832" height="464"></figure><div><h3>Rescate y auxilio en pana</h3><p>Si su auto quedó detenido, vamos a buscarlo, también de noche.</p>
       <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20consultar%20por%3A%20rescate%20y%20auxilio%20en%20pana." target="_blank" rel="noopener">Consultar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
-    <article class="serv reveal"><img src="assets/trabajos/t08.jpg" alt="Chevrolet clásico celeste sobre la plataforma" loading="lazy" width="832" height="464"><div><h3>Clásicos y alta gama</h3><p>Los subimos lento y los amarramos bien para que lleguen impecables.</p>
+    <article class="serv reveal"><figure class="foto"><img src="assets/trabajos/t08.jpg" alt="Chevrolet clásico celeste sobre la plataforma" loading="lazy" width="832" height="464"></figure><div><h3>Clásicos y alta gama</h3><p>Los subimos lento y los amarramos bien para que lleguen impecables.</p>
       <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20consultar%20por%3A%20traslado%20de%20un%20auto%20cl%C3%A1sico%20o%20de%20alta%20gama." target="_blank" rel="noopener">Consultar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
-    <article class="serv reveal"><img src="assets/trabajos/t03.jpg" alt="Mercedes-Benz blanco sobre la grúa" loading="lazy" width="832" height="464"><div><h3>Servicio 24/7</h3><p>Atendemos de día y de noche, todos los días. Le cotizamos al tiro por WhatsApp.</p>
+    <article class="serv reveal"><figure class="foto"><img src="assets/trabajos/t03.jpg" alt="Mercedes-Benz blanco sobre la grúa" loading="lazy" width="832" height="464"></figure><div><h3>Servicio 24/7</h3><p>Atendemos de día y de noche, todos los días. Le cotizamos al tiro por WhatsApp.</p>
       <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizar%20una%20gr%C3%BAa." target="_blank" rel="noopener">Consultar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
   </div>
 </div></section>
@@ -270,6 +408,11 @@ footer .pie-marca{display:flex;align-items:center;gap:12px}footer img{width:46px
 <section id="opiniones" class="opis"><div class="wrap">
   <div class="cab reveal"><div><span class="eti">Opiniones</span><h2>4,9 estrellas <em>en Google</em></h2></div><p>53 opiniones en Google con un promedio de 4,9.</p></div>
   <div class="resgrid"><figure class="res reveal"><span class="est" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>Un servicio bueno y económico, rápido y de confianza.</blockquote><figcaption>Resumen de la opinión de Manuel C. en Google</figcaption></figure><figure class="res reveal"><span class="est" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>Muy amable y rápido para trabajar, y lo mejor fue el precio; lo tendrá en mente para recomendarlo.</blockquote><figcaption>Resumen de la opinión de Andrés N. en Google</figcaption></figure><figure class="res reveal"><span class="est" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>Un servicio eficiente, humano y a un precio correcto.</blockquote><figcaption>Resumen de la opinión de Paulina P. en Google</figcaption></figure></div>
+</div></section>
+
+<section class="llamado" aria-label="Pedir grúa ahora"><img src="assets/logo.png" alt="" width="608" height="489"><div class="wrap">
+  <div class="reveal"><h2>¿Necesita una grúa ahora?</h2><p>Escríbanos o llámenos. Atendemos de día y de noche, todos los días.</p></div>
+  <div class="reveal"><a class="tel" href="tel:+56997543622">+56 9 9754 3622</a><div class="acciones"><a class="btn btn-d" href="tel:+56997543622">Llamar ahora</a><a class="btn btn-w" href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20necesito%20una%20gr%C3%BAa" target="_blank" rel="noopener">WhatsApp</a></div></div>
 </div></section>
 
 <section id="contacto" class="pedir"><div class="wrap">
@@ -298,7 +441,41 @@ footer .pie-marca{display:flex;align-items:center;gap:12px}footer img{width:46px
 </div></section>
 </main>
 
-<footer><div class="wrap"><span class="pie-marca"><img src="assets/logo-256.png" alt="" width="256" height="206"><span>Grúas Pro Express · Grúas y rescate 24/7 · Recoleta</span></span><span><a href="tel:+56997543622">+56 9 9754 3622</a> · <a href="https://www.facebook.com/people/GRUAS-PRO/61584228413606/" target="_blank" rel="noopener">Facebook</a> · &copy; <span id="y"></span></span></div></footer>
+<footer class="pie">
+  <div class="baliza" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="pie-grid">
+      <div>
+        <a class="pie-logo" href="#inicio" aria-label="Volver al inicio"><img src="assets/logo.png" alt="Logo de Grúas Pro Express" width="608" height="489" loading="lazy"></a>
+        <p>Grúas y rescate las 24 horas desde Recoleta. Cuidamos su auto como si fuera nuestro, desde el de todos los días hasta clásicos y de alta gama.</p>
+        <span class="estrellas"><b>★★★★★</b>4,9 en Google · 53 opiniones</span>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul><li><a href="#trabajos">Trabajos</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#opiniones">Opiniones</a></li><li><a href="#contacto">Pedir grúa</a></li><li><a href="#ubicacion">Dónde operamos</a></li></ul>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <ul><li><a href="#servicios">Traslado de autos</a></li><li><a href="#servicios">Rescate y auxilio en pana</a></li><li><a href="#servicios">Clásicos y alta gama</a></li><li><a href="#contacto">Cotización por WhatsApp</a></li></ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="contacto">
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.6l1.6 4.4-2.2 1.4a11 11 0 0 0 6.2 6.2l1.4-2.2 4.4 1.6V18.5A2 2 0 0 1 18 20.5 15.5 15.5 0 0 1 3.5 6 2 2 0 0 1 5 3.5z"/></svg><a href="tel:+56997543622">+56 9 9754 3622</a></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Las 24 horas, todos los días</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.4A7 7 0 0 1 19 9.6C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Recoleta, Santiago</span></li>
+        </ul>
+        <div class="redes">
+          <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20necesito%20una%20gr%C3%BAa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5zm5.4 13.4c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>
+          <a href="https://www.facebook.com/people/GRUAS-PRO/61584228413606/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg></a>
+          <a href="tel:+56997543622" aria-label="Llamar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.6l1.6 4.4-2.2 1.4a11 11 0 0 0 6.2 6.2l1.4-2.2 4.4 1.6V18.5A2 2 0 0 1 18 20.5 15.5 15.5 0 0 1 3.5 6 2 2 0 0 1 5 3.5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <p class="pie-gigante" aria-hidden="true">Grúas Pro</p>
+    <div class="pie-base"><span>&copy; <span id="y"></span> Grúas Pro Express · Grúas y rescate 24/7</span><a href="#inicio">Volver arriba ↑</a></div>
+  </div>
+</footer>
 
 <script>
 document.querySelectorAll('form[data-cot]').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();
@@ -346,6 +523,20 @@ document.querySelectorAll('form[data-cot]').forEach(function(f){f.addEventListen
     v.addEventListener('play',function(){c.classList.add('sonando');cartas.forEach(function(o){var ov=o.querySelector('video');if(ov!==v&&!ov.paused)ov.pause()})});
     v.addEventListener('ended',function(){c.classList.remove('sonando')});
   });
+})();
+</script>
+<script>
+/* menú para celular */
+(function(){
+  var b=document.querySelector('.menu-btn'),m=document.getElementById('mm');if(!b||!m)return;
+  var ultimo=null;
+  function abrir(){ultimo=document.activeElement;m.classList.add('abierto');m.setAttribute('aria-hidden','false');b.setAttribute('aria-expanded','true');document.body.classList.add('sin-scroll');setTimeout(function(){var x=m.querySelector('.mm-x');if(x)x.focus()},60)}
+  function cerrar(){m.classList.remove('abierto');m.setAttribute('aria-hidden','true');b.setAttribute('aria-expanded','false');document.body.classList.remove('sin-scroll');if(ultimo&&ultimo.focus)ultimo.focus()}
+  b.addEventListener('click',abrir);
+  m.querySelectorAll('[data-cerrar]').forEach(function(e){e.addEventListener('click',cerrar)});
+  m.querySelectorAll('.mm-links a').forEach(function(a){a.addEventListener('click',cerrar)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('abierto'))cerrar()});
+  window.addEventListener('resize',function(){if(innerWidth>980&&m.classList.contains('abierto'))cerrar()});
 })();
 </script>
 <link rel="stylesheet" href="asistente.css">
