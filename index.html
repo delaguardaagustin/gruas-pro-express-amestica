@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grúas Pro Express · Grúas y rescate 24/7 en Santiago</title>
-<meta name="description" content="Grúas Pro Express: grúas y rescate las 24 horas, todos los días, desde Recoleta. Traslado de autos del día a día, clásicos y de alta gama. 4,9 en Google con 53 opiniones.">
+<meta name="description" content="Grúas Pro Express: grúa plataforma y rescate las 24 horas, todos los días, desde Recoleta a toda la Región Metropolitana. Traslado de autos del día a día, clásicos y de alta gama. 4,9 en Google con 53 opiniones.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Grúas Pro Express · Grúas y rescate 24/7">
 <meta property="og:description" content="Grúas y rescate las 24 horas, todos los días. Vea nuestros trabajos y pida su grúa por WhatsApp.">
@@ -290,6 +290,55 @@ body.sin-scroll{overflow:hidden}
 .pie-base a{color:#fff}
 @media (max-width:980px){.pie-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.pie-grid{grid-template-columns:1fr 1fr;gap:30px 18px;padding-top:48px}.pie-grid>div:first-child,.pie-grid>div:last-child{grid-column:1/-1}.pie-logo img{width:190px}}
+
+/* ===== nuestra grúa / plataforma ===== */
+.plataforma .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media (max-width:900px){.plataforma .wrap{grid-template-columns:1fr;gap:36px}}
+.marco-foto{position:relative;margin:0;isolation:isolate}
+.marco-foto img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r);box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.marco-foto::before{content:"";position:absolute;left:-12px;top:-12px;width:46%;height:46%;border-left:6px solid var(--c1);border-top:6px solid var(--c1);border-radius:var(--r) 0 0 0;pointer-events:none}
+.marco-foto::after{content:"";position:absolute;right:-12px;bottom:-12px;width:34%;height:34%;background:repeating-linear-gradient(-45deg,var(--c1) 0 10px,transparent 10px 20px);z-index:-1;border-radius:0 0 var(--r) 0}
+@media (max-width:520px){.marco-foto::before{left:-8px;top:-8px}.marco-foto::after{right:-8px;bottom:-8px}}
+.sello-foto{position:absolute;left:16px;bottom:16px;right:16px;max-width:330px;background:var(--oscuro);color:#fff;border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 14px 30px -10px rgba(0,0,0,.6)}
+.sello-foto b{display:block;font:800 1.25rem/1 var(--ft);font-style:italic;text-transform:uppercase;color:var(--c1);margin-bottom:3px}
+.sello-foto span{font-size:.82rem;color:rgba(255,255,255,.75)}
+.sello-foto .i{width:30px;height:30px;color:var(--c1)}
+.plataforma .baja{color:var(--suave);font-size:1.08rem;margin:16px 0 22px;max-width:52ch}
+.checks{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-weight:600}
+.checks li::before{content:"";flex:none;width:24px;height:24px;border-radius:50%;background:var(--c1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/14px no-repeat;margin-top:1px}
+.tipos{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;list-style:none;margin:0;padding:0}
+@media (max-width:560px){.tipos{grid-template-columns:repeat(3,1fr)}}
+.tipos li{background:var(--panel);border:1px solid var(--linea);border-radius:12px;padding:14px 8px;text-align:center;font-size:.8rem;font-weight:700;line-height:1.25;transition:border-color .2s,transform .2s}
+.tipos li:hover{border-color:var(--c1);transform:translateY(-3px)}
+.tipos svg{width:34px;height:34px;margin:0 auto 8px;display:block;fill:none;stroke:var(--c1o);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== galería ===== */
+.galeria{background:var(--oscuro);color:#fff;background-image:radial-gradient(600px 380px at 100% 100%,rgba(255,106,19,.14),transparent 70%)}
+.galeria h2{color:#fff}.galeria .cab p{color:rgba(255,255,255,.7)}
+.mosaico{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;grid-auto-flow:dense;gap:12px}
+.mosaico button{position:relative;padding:0;border:0;border-radius:var(--r);overflow:hidden;cursor:zoom-in;background:#000;color:#fff;text-align:left}
+.mosaico img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .3s;opacity:.92}
+.mosaico button:hover img{transform:scale(1.06);opacity:1}
+.mosaico button span{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent);font:800 1.05rem/1.1 var(--ft);font-style:italic;text-transform:uppercase}
+.mosaico .alto{grid-row:span 2}.mosaico .ancho{grid-column:span 2}
+@media (max-width:900px){.mosaico{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}}
+@media (max-width:480px){.mosaico{grid-auto-rows:150px;gap:8px}}
+.visor{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);max-height:92vh;overflow:visible}
+.visor::backdrop{background:rgba(5,6,8,.92)}
+.visor img{max-width:100%;max-height:82vh;border-radius:12px;margin:0 auto}
+.visor p{color:#fff;text-align:center;margin:12px 0 0;font:800 1.2rem/1.2 var(--ft);font-style:italic;text-transform:uppercase}
+.visor .vx{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:48px;height:48px;border-radius:50%;border:0;background:var(--c1);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
+
+/* ===== consejos ===== */
+.consejos{background:#fff}
+.tips{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;list-style:none;margin:0;padding:0;counter-reset:t}
+@media (max-width:980px){.tips{grid-template-columns:1fr 1fr}}@media (max-width:520px){.tips{grid-template-columns:1fr}}
+.tips li{counter-increment:t;position:relative;background:var(--fondo);border:1px solid var(--linea);border-radius:var(--r);padding:24px 22px 22px;overflow:hidden}
+.tips li::after{content:counter(t);position:absolute;right:12px;top:-6px;font:900 5rem/1 var(--ft);font-style:italic;color:rgba(255,106,19,.14)}
+.tips .ic{width:50px;height:50px;border-radius:14px;background:var(--oscuro);color:var(--c1);display:grid;place-items:center;margin-bottom:14px}
+.tips .ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tips h3{font-size:1.3rem;margin-bottom:6px}.tips p{margin:0;color:var(--suave);font-size:.95rem}
 </style>
 </head>
 <body>
@@ -305,7 +354,7 @@ body.sin-scroll{overflow:hidden}
 
 <header><div class="wrap nav">
   <a class="marca" href="#inicio"><img src="assets/logo-256.png" alt="Logo de Grúas Pro Express" width="256" height="206"><span><b>Grúas Pro Express</b><small>Grúas y rescate 24/7</small></span></a>
-  <nav class="menu" aria-label="Secciones"><a href="#trabajos">Trabajos</a><a href="#servicios">Servicios</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a></nav>
+  <nav class="menu" aria-label="Secciones"><a href="#trabajos">Trabajos</a><a href="#grua">Nuestra grúa</a><a href="#servicios">Servicios</a><a href="#galeria">Galería</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a></nav>
   <div class="nav-der">
     <a class="red" href="https://www.facebook.com/people/GRUAS-PRO/61584228413606/" target="_blank" rel="noopener" aria-label="Facebook de Grúas Pro Express"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg></a>
     <a class="btn btn-p" href="#contacto">Pedir grúa</a>
@@ -319,7 +368,9 @@ body.sin-scroll{overflow:hidden}
     <div class="mm-arriba"><img src="assets/logo-256.png" alt="Grúas Pro Express" width="256" height="206"><button class="mm-x" type="button" aria-label="Cerrar menú" data-cerrar><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
     <ul class="mm-links">
       <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#grua">Nuestra grúa</a></li>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Galería</a></li>
       <li><a href="#opiniones">Opiniones</a></li>
       <li><a href="#contacto">Pedir grúa</a></li>
       <li><a href="#ubicacion">Dónde operamos</a></li>
@@ -345,7 +396,7 @@ body.sin-scroll{overflow:hidden}
         <a class="btn btn-wa" href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20necesito%20una%20gr%C3%BAa" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.6c.2 2.9 2.6 5.4 5.6 5.8l1-1.1 1.9.8-.4 1.8c-4.6.4-8.8-3.6-8.5-8.3l1.8-.4.8 1.9z"/></svg>Pedir grúa por WhatsApp</a>
         <a class="btn btn-o" href="tel:+56997543622"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.6l1.6 4.4-2.2 1.4a11 11 0 0 0 6.2 6.2l1.4-2.2 4.4 1.6V18.5A2 2 0 0 1 18 20.5 15.5 15.5 0 0 1 3.5 6 2 2 0 0 1 5 3.5z"/></svg>+56 9 9754 3622</a>
       </div>
-      <ul class="chips"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></svg>4,9 en Google</li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c.6-3.3 2.8-5 5.5-5s4.9 1.7 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.6c2.4-.3 4.4 1.2 5 4"/></svg>53 opiniones</li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Las 24 horas, todos los días</li></ul>
+      <ul class="chips"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></svg>4,9 en Google</li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5c.6-3.3 2.8-5 5.5-5s4.9 1.7 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.6c2.4-.3 4.4 1.2 5 4"/></svg>53 opiniones</li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Las 24 horas, todos los días</li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.4A7 7 0 0 1 19 9.6C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Toda la Región Metropolitana</li></ul>
     </div>
     <img class="escudo" src="assets/logo.png" alt="Escudo de Grúas Pro Express: grúa 24/7 con un auto sobre la plataforma" width="608" height="489">
   </div>
@@ -374,6 +425,24 @@ body.sin-scroll{overflow:hidden}
   </div>
 </div></section>
 
+<section class="plataforma" id="grua"><div class="wrap">
+  <figure class="marco-foto reveal"><img src="assets/fotos/ruta.jpg" alt="Grúa plataforma roja de Grúas Pro Express con el letrero Rescate 24/7, en la cordillera" width="1200" height="1200" loading="lazy">
+    <figcaption class="sello-foto"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h10v9h-10zM13.5 9.5h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg><span><b>Grúa plataforma</b>Rescate 24/7 · Región Metropolitana</span></figcaption></figure>
+  <div class="reveal">
+    <span class="eti">Nuestra grúa</span>
+    <h2>Que no arrastren <em>su auto</em></h2>
+    <p class="baja">Con grúa plataforma su auto viaja arriba, con las cuatro ruedas sobre la cama. No se arrastra y no se daña más de lo que ya está.</p>
+    <ul class="checks"><li>Su auto viaja arriba, sobre la plataforma</li><li>Bien amarrado antes de partir</li><li>Llegamos también a la cordillera y a lugares difíciles</li></ul>
+    <ul class="tipos" aria-label="Qué trasladamos">
+      <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 26v-5l4-7h17l6 7h3v5z"/><circle cx="12" cy="27" r="3"/><circle cx="28" cy="27" r="3"/><path d="M11 14l-2 7h21"/></svg>Autos</li>
+      <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 27v-6l4-6h12v6h12l4 3v3z"/><circle cx="11" cy="28" r="3"/><circle cx="29" cy="28" r="3"/><path d="M20 15v6"/></svg>Camionetas</li>
+      <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 26v-4l5-2 4-6h12l5 6 6 1v5z"/><circle cx="11" cy="27" r="3"/><circle cx="29" cy="27" r="3"/><path d="M20 4l1.2 2.4 2.6.4-1.9 1.8.5 2.6-2.4-1.3-2.4 1.3.5-2.6-1.9-1.8 2.6-.4z"/></svg>Clásicos y alta gama</li>
+      <li><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="10" y="7" width="20" height="5" rx="1"/><path d="M12 12l16 8M28 12l-16 8"/><rect x="8" y="20" width="24" height="6" rx="1"/><circle cx="12" cy="30" r="2.5"/><circle cx="28" cy="30" r="2.5"/></svg>Maquinaria liviana</li>
+      <li><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6l15 26H5z"/><path d="M20 16v7M20 27v.5"/></svg>Rescate de volcados</li>
+    </ul>
+  </div>
+</div></section>
+
 <section class="cifras" aria-label="Grúas Pro Express en cifras"><div class="wrap"><ul>
   <li class="reveal"><b>4,9</b><span>Estrellas en Google</span></li>
   <li class="reveal"><b>53</b><span>Opiniones de clientes</span></li>
@@ -386,7 +455,7 @@ body.sin-scroll{overflow:hidden}
   <div class="servs">
     <article class="serv reveal"><figure class="foto"><img src="assets/trabajos/t01.jpg" alt="Auto blanco subiendo a la plataforma de la grúa" loading="lazy" width="832" height="464"></figure><div><h3>Traslado de autos en grúa</h3><p>Llevamos su auto al taller, a su casa o donde lo necesite.</p>
       <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20consultar%20por%3A%20traslado%20de%20autos%20en%20gr%C3%BAa." target="_blank" rel="noopener">Consultar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
-    <article class="serv reveal"><figure class="foto"><img src="assets/trabajos/t06.jpg" alt="Rescate de un vehículo en un espacio cerrado" loading="lazy" width="832" height="464"></figure><div><h3>Rescate y auxilio en pana</h3><p>Si su auto quedó detenido, vamos a buscarlo, también de noche.</p>
+    <article class="serv reveal"><figure class="foto"><img src="assets/fotos/noche.jpg" alt="Rescate de un auto de noche" loading="lazy" width="832" height="464"></figure><div><h3>Rescate y auxilio en pana</h3><p>Si su auto quedó detenido, vamos a buscarlo, también de noche.</p>
       <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20consultar%20por%3A%20rescate%20y%20auxilio%20en%20pana." target="_blank" rel="noopener">Consultar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
     <article class="serv reveal"><figure class="foto"><img src="assets/trabajos/t08.jpg" alt="Chevrolet clásico celeste sobre la plataforma" loading="lazy" width="832" height="464"></figure><div><h3>Clásicos y alta gama</h3><p>Los subimos lento y los amarramos bien para que lleguen impecables.</p>
       <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20consultar%20por%3A%20traslado%20de%20un%20auto%20cl%C3%A1sico%20o%20de%20alta%20gama." target="_blank" rel="noopener">Consultar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
@@ -394,6 +463,19 @@ body.sin-scroll{overflow:hidden}
       <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizar%20una%20gr%C3%BAa." target="_blank" rel="noopener">Consultar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
   </div>
 </div></section>
+
+<section class="galeria" id="galeria"><div class="wrap">
+  <div class="cab reveal"><div><span class="eti">Galería</span><h2>En <em>terreno</em></h2></div><p>Fotos de nuestros trabajos: de día, de noche, en la calle y en espacios cerrados. Toque una para verla grande.</p></div>
+  <div class="mosaico reveal">
+    <button type="button" class="ancho" data-foto="assets/fotos/camion-audi.jpg" data-txt="Audi sobre la plataforma"><img src="assets/fotos/camion-audi.jpg" alt="Grúa roja con un Audi gris sobre la plataforma" loading="lazy" width="590" height="443"><span>Audi sobre la plataforma</span></button>
+    <button type="button" class="alto" data-foto="assets/fotos/volcado.jpg" data-txt="Rescate de un auto volcado"><img src="assets/fotos/volcado.jpg" alt="Auto volcado de lado, amarrado para su rescate" loading="lazy" width="540" height="960"><span>Rescate de volcado</span></button>
+    <button type="button" data-foto="assets/fotos/noche.jpg" data-txt="Rescate de noche"><img src="assets/fotos/noche.jpg" alt="Rescate de un auto de noche, con chaleco reflectante" loading="lazy" width="960" height="540"><span>Rescate de noche</span></button>
+    <button type="button" data-foto="assets/fotos/maquinaria.jpg" data-txt="Traslado de una plataforma elevadora"><img src="assets/fotos/maquinaria.jpg" alt="Grúa roja trasladando una plataforma elevadora azul" loading="lazy" width="960" height="540"><span>Maquinaria liviana</span></button>
+    <button type="button" data-foto="assets/fotos/bmw.jpg" data-txt="BMW listo para el traslado"><img src="assets/fotos/bmw.jpg" alt="BMW blanco sobre la plataforma de la grúa" loading="lazy" width="960" height="540"><span>BMW listo para partir</span></button>
+    <button type="button" data-foto="assets/fotos/partner.jpg" data-txt="Camioneta en un espacio cerrado"><img src="assets/fotos/partner.jpg" alt="Camioneta blanca cargada en la grúa dentro de un recinto techado" loading="lazy" width="960" height="540"><span>Camionetas también</span></button>
+  </div>
+</div></section>
+<dialog class="visor" id="visor" aria-label="Foto ampliada"><button class="vx" type="button" aria-label="Cerrar foto">×</button><img src="" alt=""><p></p></dialog>
 
 <section class="confianza"><div class="wrap">
   <div class="reveal"><span class="eti">Por qué nos eligen</span><h2>Lo que dicen <em>nuestros clientes</em></h2><p class="nota-p">Lo sacamos de lo que más repiten nuestros clientes en Google.</p></div>
@@ -410,6 +492,16 @@ body.sin-scroll{overflow:hidden}
   <div class="resgrid"><figure class="res reveal"><span class="est" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>Un servicio bueno y económico, rápido y de confianza.</blockquote><figcaption>Resumen de la opinión de Manuel C. en Google</figcaption></figure><figure class="res reveal"><span class="est" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>Muy amable y rápido para trabajar, y lo mejor fue el precio; lo tendrá en mente para recomendarlo.</blockquote><figcaption>Resumen de la opinión de Andrés N. en Google</figcaption></figure><figure class="res reveal"><span class="est" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>Un servicio eficiente, humano y a un precio correcto.</blockquote><figcaption>Resumen de la opinión de Paulina P. en Google</figcaption></figure></div>
 </div></section>
 
+<section class="consejos"><div class="wrap">
+  <div class="cab reveal"><div><span class="eti">Mientras llega la grúa</span><h2>Quedó en pana: <em>qué hacer</em></h2></div><p>Cuatro pasos para esperar seguro. Nosotros nos encargamos del resto.</p></div>
+  <ol class="tips">
+    <li class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l9 15H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><h3>Luces de emergencia</h3><p>Enciéndalas apenas se detenga, de día y de noche.</p></li>
+    <li class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3l4 3 4-3 3 4-2 2v12H7V9L5 7z"/><path d="M7 13h10M7 17h10"/></svg></span><h3>Chaleco reflectante</h3><p>Póngaselo antes de bajar y salga por el lado de la vereda.</p></li>
+    <li class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8 14H4z"/><path d="M12 9l4 7H8z"/></svg></span><h3>Triángulos</h3><p>Póngalos detrás del auto para que lo vean a tiempo.</p></li>
+    <li class="reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.4A7 7 0 0 1 19 9.6C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><h3>Mándenos su ubicación</h3><p>Por WhatsApp, con el modelo del auto. Así llegamos directo.</p></li>
+  </ol>
+</div></section>
+
 <section class="llamado" aria-label="Pedir grúa ahora"><img src="assets/logo.png" alt="" width="608" height="489"><div class="wrap">
   <div class="reveal"><h2>¿Necesita una grúa ahora?</h2><p>Escríbanos o llámenos. Atendemos de día y de noche, todos los días.</p></div>
   <div class="reveal"><a class="tel" href="tel:+56997543622">+56 9 9754 3622</a><div class="acciones"><a class="btn btn-d" href="tel:+56997543622">Llamar ahora</a><a class="btn btn-w" href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20necesito%20una%20gr%C3%BAa" target="_blank" rel="noopener">WhatsApp</a></div></div>
@@ -418,7 +510,7 @@ body.sin-scroll{overflow:hidden}
 <section id="contacto" class="pedir"><div class="wrap">
   <div class="reveal"><span class="eti">Pedir grúa</span><h2>Cotice su <em>grúa</em></h2>
     <p class="nota-p">Complete lo que sepa y se abre WhatsApp con el mensaje listo.</p>
-    <div class="faqs"><details class="faq" open><summary>¿Cómo pido la grúa?</summary><p>Por WhatsApp o llamando al +56 9 9754 3622. Le respondemos a la brevedad.</p></details><details class="faq"><summary>¿Atienden de noche y los fines de semana?</summary><p>Sí, las 24 horas, todos los días.</p></details><details class="faq"><summary>¿Trasladan autos clásicos o de alta gama?</summary><p>Sí. En nuestros videos puede ver traslados de un Rolls-Royce y de un Chevrolet clásico.</p></details><details class="faq"><summary>¿Cuánto cuesta?</summary><p>Depende de la distancia. Díganos desde dónde y hacia dónde y le damos el valor.</p></details><details class="faq"><summary>¿Dónde están?</summary><p>En Recoleta. Vamos a buscar su auto; consúltenos por su comuna.</p></details></div></div>
+    <div class="faqs"><details class="faq" open><summary>¿Cómo pido la grúa?</summary><p>Por WhatsApp o llamando al +56 9 9754 3622. Le respondemos a la brevedad.</p></details><details class="faq"><summary>¿Atienden de noche y los fines de semana?</summary><p>Sí, las 24 horas, todos los días.</p></details><details class="faq"><summary>¿Trasladan autos clásicos o de alta gama?</summary><p>Sí. En nuestros videos puede ver traslados de un Rolls-Royce y de un Chevrolet clásico.</p></details><details class="faq"><summary>¿Cuánto cuesta?</summary><p>Depende de la distancia. Díganos desde dónde y hacia dónde y le damos el valor.</p></details><details class="faq"><summary>¿Dónde están?</summary><p>Salimos desde Recoleta y atendemos toda la Región Metropolitana.</p></details></div></div>
   <form class="form reveal" data-cot novalidate data-wa="56997543622" data-msg="Hola, vi su página web y necesito una grúa." data-falta="Elija qué necesita.">
     <h3>Su traslado</h3>
     <label class="campo">¿Qué necesita?<select data-k="Necesito:" data-req><option value="">— Elija una opción —</option><option>Traslado de auto en grúa</option><option>Rescate o auxilio en pana</option><option>Traslado de auto clásico o de alta gama</option><option>Cotización</option><option>Otra consulta</option></select></label>
@@ -433,8 +525,8 @@ body.sin-scroll{overflow:hidden}
 
 <section id="ubicacion" class="lugar"><div class="wrap">
   <div class="donde">
-    <div class="dato reveal"><span class="eti">Dónde operamos</span><h2>Desde <em>Recoleta</em></h2>
-      <p><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.4A7 7 0 0 1 19 9.6C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Recoleta, Santiago. Vamos a buscar su auto.</span></p><ul class="hor"><li><span>Todos los días</span><b>Las 24 horas</b></li></ul>
+    <div class="dato reveal"><span class="eti">Dónde operamos</span><h2>Toda la <em>Región Metropolitana</em></h2>
+      <p><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.4A7 7 0 0 1 19 9.6C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Desde Recoleta a toda la Región Metropolitana. Vamos a buscar su auto o camioneta.</span></p><p><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.6l1.6 4.4-2.2 1.4a11 11 0 0 0 6.2 6.2l1.4-2.2 4.4 1.6V18.5A2 2 0 0 1 18 20.5 15.5 15.5 0 0 1 3.5 6 2 2 0 0 1 5 3.5z"/></svg><span><a href="tel:+56997543622" style="color:#fff">+56 9 9754 3622</a> · segunda línea <a href="tel:+56977353463" style="color:#fff">+56 9 7735 3463</a></span></p><ul class="hor"><li><span>Todos los días</span><b>Las 24 horas</b></li></ul>
       <div class="acciones"><a class="btn btn-wa" href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20necesito%20una%20gr%C3%BAa" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.6c.2 2.9 2.6 5.4 5.6 5.8l1-1.1 1.9.8-.4 1.8c-4.6.4-8.8-3.6-8.5-8.3l1.8-.4.8 1.9z"/></svg>Escribir</a><a class="btn btn-o" href="tel:+56997543622"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.6l1.6 4.4-2.2 1.4a11 11 0 0 0 6.2 6.2l1.4-2.2 4.4 1.6V18.5A2 2 0 0 1 18 20.5 15.5 15.5 0 0 1 3.5 6 2 2 0 0 1 5 3.5z"/></svg>Llamar</a></div></div>
     <iframe class="mapa" title="Mapa de Recoleta, Santiago" loading="lazy" src="https://www.google.com/maps?q=Recoleta%2C%20Santiago%2C%20Chile&z=14&output=embed"></iframe>
   </div>
@@ -461,9 +553,9 @@ body.sin-scroll{overflow:hidden}
       <div>
         <h4>Contacto</h4>
         <ul class="contacto">
-          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.6l1.6 4.4-2.2 1.4a11 11 0 0 0 6.2 6.2l1.4-2.2 4.4 1.6V18.5A2 2 0 0 1 18 20.5 15.5 15.5 0 0 1 3.5 6 2 2 0 0 1 5 3.5z"/></svg><a href="tel:+56997543622">+56 9 9754 3622</a></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.6l1.6 4.4-2.2 1.4a11 11 0 0 0 6.2 6.2l1.4-2.2 4.4 1.6V18.5A2 2 0 0 1 18 20.5 15.5 15.5 0 0 1 3.5 6 2 2 0 0 1 5 3.5z"/></svg><a href="tel:+56997543622">+56 9 9754 3622</a><br><a href="tel:+56977353463">+56 9 7735 3463</a></li>
           <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Las 24 horas, todos los días</span></li>
-          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.4A7 7 0 0 1 19 9.6C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Recoleta, Santiago</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.4A7 7 0 0 1 19 9.6C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Recoleta · toda la Región Metropolitana</span></li>
         </ul>
         <div class="redes">
           <a href="https://wa.me/56997543622?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20necesito%20una%20gr%C3%BAa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5zm5.4 13.4c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>
@@ -526,6 +618,16 @@ document.querySelectorAll('form[data-cot]').forEach(function(f){f.addEventListen
 })();
 </script>
 <script>
+/* visor de fotos */
+(function(){
+  var d=document.getElementById('visor');if(!d||!d.showModal)return;
+  var im=d.querySelector('img'),tx=d.querySelector('p');
+  document.querySelectorAll('.mosaico button').forEach(function(b){b.addEventListener('click',function(){im.src=b.getAttribute('data-foto');im.alt=b.querySelector('img').alt;tx.textContent=b.getAttribute('data-txt');d.showModal()})});
+  d.querySelector('.vx').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d)d.close()});
+})();
+</script>
+<script>
 /* menú para celular */
 (function(){
   var b=document.querySelector('.menu-btn'),m=document.getElementById('mm');if(!b||!m)return;
@@ -540,7 +642,7 @@ document.querySelectorAll('form[data-cot]').forEach(function(f){f.addEventListen
 })();
 </script>
 <link rel="stylesheet" href="asistente.css">
-<script>window.ASISTENTE = {"negocio": "Grúas Pro Express", "persona": "Grúas Pro Express", "wa": "56997543622", "confirma": "los traslados se coordinan", "boton": "Pedir grúa", "saludo": "Hola, soy el asistente de Grúas Pro Express. Atendemos las 24 horas. ¿Qué necesita?", "cuando": [{"t": "Ahora", "m": "Necesito la grúa ahora."}, {"t": "Hoy, más tarde", "m": "La necesito hoy, más tarde."}, {"t": "Otro día", "m": "La necesito otro día."}, {"t": "Solo quiero cotizar", "m": "Por ahora solo quiero cotizar."}], "servicios": [{"n": "Traslado de auto en grúa", "info": "Llevamos su auto al taller, a su casa o donde lo necesite.", "opts": [], "kw": "trasl|llevar|grua|grúa|taller|auto"}, {"n": "Rescate o auxilio en pana", "info": "Si su auto quedó detenido, vamos a buscarlo, también de noche.", "opts": [], "kw": "pana|detenid|no arranca|choque|accidente|auxilio|rescate|bateria|batería"}, {"n": "Auto clásico o de alta gama", "info": "Los subimos lento a la plataforma y los amarramos bien. Puede ver traslados de un Rolls-Royce y un Chevrolet clásico en la sección de trabajos.", "opts": [], "kw": "clasico|clásico|antiguo|coleccion|colección|lujo|alta gama|deportivo|mercedes|bmw|audi|rolls"}, {"n": "Cotización", "info": "Cuéntenos desde dónde y hacia dónde, y le damos el valor.", "opts": [], "kw": "precio|valor|cuanto|cuánto|cotiz"}], "faq": [{"pri": true, "kw": "precio|valor|cuanto|costo|cobra|sale|presupuesto|cotiz", "r": "El valor depende de la distancia. Cuénteme desde dónde y hacia dónde, y le dejo el mensaje listo."}, {"kw": "donde|direccion|ubicacion|comuna|zona|sector|llegan|van a|hasta", "r": "Estamos en Recoleta y vamos a buscar su auto. Consúltenos por su comuna y le confirmamos al tiro."}, {"kw": "horario|hora|abren|atienden|sabado|domingo|noche|madrugada|urgencia|emergencia|24|feriado", "r": "Las 24 horas, todos los días, incluidos fines de semana y feriados."}, {"kw": "pago|transferencia|efectivo|tarjeta|boleta|factura", "r": "Las formas de pago se confirman al cotizar."}, {"kw": "clasico|clásico|antiguo|lujo|alta gama|cuidado|rayon|rayón|daño", "r": "Sí, trasladamos clásicos y autos de alta gama: los subimos lento a la plataforma y los amarramos bien. En la sección «Trabajos reales» hay videos de un Rolls-Royce y un Chevrolet clásico."}, {"kw": "video|trabajo|foto|facebook|redes|instagram", "r": "En esta página hay 8 videos de trabajos reales y en nuestro Facebook (GRUAS PRO) vamos subiendo más."}, {"kw": "garantia|seguro|confianza|quien|experiencia|opiniones|resenas|reseñas", "r": "Grúas Pro Express tiene 4,9 en Google con 53 opiniones. Destacan la rapidez, la confianza y el precio razonable."}]};</script>
+<script>window.ASISTENTE = {"negocio": "Grúas Pro Express", "persona": "Grúas Pro Express", "wa": "56997543622", "confirma": "los traslados se coordinan", "boton": "Pedir grúa", "saludo": "Hola, soy el asistente de Grúas Pro Express. Atendemos las 24 horas. ¿Qué necesita?", "cuando": [{"t": "Ahora", "m": "Necesito la grúa ahora."}, {"t": "Hoy, más tarde", "m": "La necesito hoy, más tarde."}, {"t": "Otro día", "m": "La necesito otro día."}, {"t": "Solo quiero cotizar", "m": "Por ahora solo quiero cotizar."}], "servicios": [{"n": "Traslado de auto en grúa", "info": "Llevamos su auto al taller, a su casa o donde lo necesite.", "opts": [], "kw": "trasl|llevar|grua|grúa|taller|auto"}, {"n": "Rescate o auxilio en pana", "info": "Si su auto quedó detenido, vamos a buscarlo, también de noche.", "opts": [], "kw": "pana|detenid|no arranca|choque|accidente|auxilio|rescate|bateria|batería"}, {"n": "Auto clásico o de alta gama", "info": "Los subimos lento a la plataforma y los amarramos bien. Puede ver traslados de un Rolls-Royce y un Chevrolet clásico en la sección de trabajos.", "opts": [], "kw": "clasico|clásico|antiguo|coleccion|colección|lujo|alta gama|deportivo|mercedes|bmw|audi|rolls"}, {"n": "Cotización", "info": "Cuéntenos desde dónde y hacia dónde, y le damos el valor.", "opts": [], "kw": "precio|valor|cuanto|cuánto|cotiz"}], "faq": [{"pri": true, "kw": "precio|valor|cuanto|costo|cobra|sale|presupuesto|cotiz", "r": "El valor depende de la distancia. Cuénteme desde dónde y hacia dónde, y le dejo el mensaje listo."}, {"kw": "donde|direccion|ubicacion|comuna|zona|sector|llegan|van a|hasta", "r": "Salimos desde Recoleta y atendemos toda la Región Metropolitana. Mándenos su ubicación y le damos el valor."}, {"kw": "horario|hora|abren|atienden|sabado|domingo|noche|madrugada|urgencia|emergencia|24|feriado", "r": "Las 24 horas, todos los días, incluidos fines de semana y feriados."}, {"kw": "camioneta|suv|furgon|furgón|maquina|máquina|elevadora|tijera|volcad|volco", "r": "Trasladamos autos, camionetas, clásicos y maquinaria liviana, y rescatamos vehículos volcados. Cuénteme qué es y le dejo el mensaje listo."}, {"kw": "pago|transferencia|efectivo|tarjeta|boleta|factura", "r": "Las formas de pago se confirman al cotizar."}, {"kw": "clasico|clásico|antiguo|lujo|alta gama|cuidado|rayon|rayón|daño", "r": "Sí, trasladamos clásicos y autos de alta gama: los subimos lento a la plataforma y los amarramos bien. En la sección «Trabajos reales» hay videos de un Rolls-Royce y un Chevrolet clásico."}, {"kw": "video|trabajo|foto|facebook|redes|instagram", "r": "En esta página hay 8 videos de trabajos reales y en nuestro Facebook (GRUAS PRO) vamos subiendo más."}, {"kw": "garantia|seguro|confianza|quien|experiencia|opiniones|resenas|reseñas", "r": "Grúas Pro Express tiene 4,9 en Google con 53 opiniones. Destacan la rapidez, la confianza y el precio razonable."}]};</script>
 <script src="asistente.js" defer></script>
 <!-- contador de visitas -->
 <script>(function(){try{var L=localStorage,S=sessionStorage;if(location.search.indexOf('yo=1')>-1)L.setItem('soy-de-la-casa','1');
